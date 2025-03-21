@@ -135,3 +135,7 @@ primary key(test_id));
 
 insert into test8(test_id,test_name,test_mailid,test_address,test_salery) value(101,'krish','krishnaik@gmail.com', 'bangalore' , 30000);
 select * from test8;
+select count(distinct test_name) from test8;
+select distinct test_name,test_address,test_salery from test8 where test_address='Bangalore';
+select  test_name,avg(test_salery) as salary,test_address from test8 group by test_address having salary>10000;
+create index idx_test_id on test8(test_id);

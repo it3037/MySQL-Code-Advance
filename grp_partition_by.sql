@@ -16,8 +16,6 @@ SELECT * FROM emp_data;
 SELECT * ,AVG(salary) AS avg_salary FROM emp_data GROUP BY dept;
 SELECT *,AVG(salary) OVER (PARTITION BY dept ) AS avg_salary FROM emp_data;
 
-
-
 select * ,avg(salary) as avg_salary from emp_data group by dept;
 
 select * ,avg(salary) over(partition by dept) as avg_salary from emp_data;

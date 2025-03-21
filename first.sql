@@ -128,7 +128,7 @@ select age , loan , job from bank_deatils
  
 select `default` from  bank_deatils
 
-select * from bank_deatils limit 10
+select * from bank_deatils limit 1
 
 select * from bank_deatils where age  =  33
 
@@ -145,7 +145,21 @@ select distinct job from bank_deatils
 select * from bank_deatils 
 
 select * from bank_deatils order by age 
-select * from bank_deatils order by age desc 
+select * from bank_deatils order by age desc ;
+##Pagination
+ ORDER BY age  
+LIMIT 5 OFFSET (3 - 1) * 5;
+SELECT * FROM bank_deatils  
+ORDER BY age  
+LIMIT 5 OFFSET 10;
+
+SET @page = 3;
+SET @rows_per_page = 8;
+SET @offset_value = (@page - 1) * @rows_per_page;
+
+PREPARE stmt FROM 'SELECT * FROM bank_deatils ORDER BY age LIMIT ? OFFSET ?';
+EXECUTE stmt USING @rows_per_page, @offset_value;
+DEALLOCATE PREPARE stmt;
 
 
 with this data try to fine out sum of balance 
@@ -170,3 +184,13 @@ select * from bank_deatils where job="unknown" and age<45;
 select * from bank_deatils where job="unknown" and education="primary";
 select * from bank_deatils where balance<0;
 select * from bank_deatils where balance>0 and housing="yes";
+create view view_raka as select job,balance ,loan from bank_deatils where job="admin." and age<45;
+select * from bank_deatils limit 1;
+#cte
+with rakaa as (select job,balance ,loan from bank_deatils where job="admin.")
+select * from rakaa;
+
+create view raakaa as select job,balance ,loan from job,balance ,loan;
+select * from raakaa;
+with ram as (select job,balance ,loan,education,marital from bank_deatils)
+select * from ram;

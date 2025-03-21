@@ -65,14 +65,14 @@ insert into ineuron_courses1 values('machine_learning' , 101 , 'ML', "this is ML
 ('fsda' , 101 , 'ML', "this is ML course" ,'2021-07-07',3540,'sudhanshu',2021) ,
 ('fabe' , 101 , 'ML', "this is ML course" ,'2022-07-07',3540,'sudhanshu',2022) ,
 ('java' , 101 , 'ML', "this is ML course" ,'2020-07-07',3540,'sudhanshu',2020) ,
-('MERN' , 101 , 'ML', "this is ML course" ,'2019-07-07',3540,'sudhanshu',2019) 
+('MERN' , 101 , 'ML', "this is ML course" ,'2019-07-07',3540,'sudhanshu',2019) ;
 
 
 
-select * from ineuron_courses1 where course_launch_year = 2020
+select * from ineuron_courses1 where course_launch_year = 2020;
 
-select * from ineuron_course1 where course_lauch_year = 2020
-select partition_name , table_name , table_rows from information_schema.partitions where table_name = 'ineuron_courses1'
+select * from ineuron_course1 where course_lauch_year = 2020;
+select partition_name , table_name , table_rows from information_schema.partitions where table_name = 'ineuron_courses1';
 SHOW CREATE TABLE ineuron_courses1\G
 SHOW CREATE TABLE ineuron_courses1;
 EXPLAIN PARTITIONS SELECT * FROM ineuron_courses1 WHERE course_launch_year=2020;
@@ -219,7 +219,7 @@ course_launch_year int)
 partition by list(course_launch_year)(
 partition p0 values in(2019,2020),
 partition p1 values in(2022,2021)
-)
+);
 
 insert ignore into ineuron_courses7 values('machine_learning' , 101 , 'ML', "this is ML course" ,'2019-07-07',3540,'sudhanshu',2019) ,
 ('aiops' , 102 , 'ML', "this is aiops course" ,'2019-07-07',3540,'sudhanshu',2019) ,
@@ -315,3 +315,16 @@ partition p3 values less than (2022)
 
 select partition_name , table_name , table_rows from information_schema.partitions where table_name = 'ineuron_courses10'
 SHOW CREATE TABLE ineuron_courses1\G
+
+
+select * from ineuron_courses1;
+select * from ineuron_courses2;
+select * from ineuron_courses3;
+select * from ineuron_courses4;
+select * from ineuron_courses5;
+select * from ineuron_courses6;
+select * from ineuron_courses7;
+select * from ineuron_courses8;
+select * from ineuron_courses9;
+select * from ineuron_courses10;
+

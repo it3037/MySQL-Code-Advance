@@ -93,7 +93,7 @@ from customers c
 left join orders o on c.customer_id=o.customer_id
 left join products p on o.product_id=p.product_id
 left join payments pay on o.order_id=pay.order_id
-where payment_status='Paid';
+where payment_status='Paid' group by city;
 
 select c.name,c.city,o.order_id,o.order_date,p.product_name,p.price,pay.amount,pay.payment_status
 from customers c

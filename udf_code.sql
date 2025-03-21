@@ -36,6 +36,7 @@ deterministic
 begin
 	return CONCAT(fname ,' ', lname);
 end $$
+select cancate("raka","pal");
 
 DELIMITER ;
 delimiter $$
@@ -60,7 +61,6 @@ delimiter ;
 select hashPwd('Rakesh143')
 
 DELIMITER $$
-
 CREATE FUNCTION CalculateBonus(salary DECIMAL(10,2), experience INT)  
 RETURNS DECIMAL(10,2)  
 DETERMINISTIC  

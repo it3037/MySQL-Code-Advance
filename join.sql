@@ -42,10 +42,11 @@ insert into student values(301 , "sudhanshu", 3543453,'yes', 101),
 (306 , "sudhanshu", 3543453,'yes', 103);
 
 select * from course;
+select * from course group by course_tag;
 
 select * from student;
 select c.course_id,c.course_name,c.course_desc,s.student_id,s.student_name from course c
-inner join student s on c.course_id=s.student_course_id;
+inner join student s on c.course_id=s.student_course_id group by course_name;
 
 select c.course_id,c.course_name,c.course_desc,s.student_id,s.student_name,s.student_course_id from course c
 left join student s on c.course_id=s.student_course_id;

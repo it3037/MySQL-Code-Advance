@@ -115,7 +115,8 @@ select year_new,sum(quantity) from sales group by year_new;
 
 select year_new,(sales*discount+shipping_cost)  as CTC from sales;
 select order_id ,discount , if(discount > 0 ,'yes' , 'no') as discount_flag from sales;
-
+alter table sales drop Year_new;
+alter table sales rename column Day_new to Day;
 alter table sales
 add column discount_flag date after discount
 alter table sales
@@ -129,4 +130,4 @@ select count(*) from  sales where discount > 0
 
 update sales
 set discount_flag = if(discount > 0, 'yes', 'no');
-
+select * from sales;

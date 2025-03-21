@@ -53,6 +53,7 @@ create index idx_salary on staff(salary);
 create index idx_cust_name on staff(customer_name);
 select * from staff where customer_name in ('Rakesh','David White','Jane Smith')
 SHOW INDEXES FROM staff;
+
 WITH sample_data AS (
     SELECT * FROM staff WHERE customer_name IN ('Rakesh', 'David White', 'Jane Smith')
 )

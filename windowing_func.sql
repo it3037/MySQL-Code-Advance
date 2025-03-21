@@ -1,6 +1,6 @@
 create database win_fun;
 use win_fun;
-show databases;
+show table status;
 create table ineuron_students(
 student_id int ,
 student_batch varchar(40),
@@ -37,10 +37,10 @@ select * from ineuron_students;
 select student_batch,sum(students_marks) as Total_Marks from ineuron_students group by student_batch;
 select student_batch,min(students_marks) as Min_Marks from ineuron_students group by student_batch;
 select student_batch,max(students_marks) as Max_Marks from ineuron_students group by student_batch;
-select student_batch,avg(students_marks) as Avg_Marks from ineuron_students group by student_batch;
+select student_batch,students_marks from ineuron_students group by student_batch having avg(students_marks)>1;
 select count(student_batch) from ineuron_students;
 select count(distinct student_batch) from ineuron_students;
-select student_batch,count(*) as total from ineuron_students group by student_batch;
+select student_batch,count(*) as total from ineuron_students group by student_batch having avg(students_marks)>1;
 select * from ineuron_students;
 select student_name,max(students_marks),student_batch from ineuron_students where student_batch="fsda";
 
